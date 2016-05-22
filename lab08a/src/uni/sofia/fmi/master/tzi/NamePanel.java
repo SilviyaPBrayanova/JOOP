@@ -8,6 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class NamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -24,92 +25,76 @@ public class NamePanel extends JPanel {
 		lblFirstName.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtFirstnamefield = new JTextField();
-		txtFirstnamefield.setText("firstNameField");
 		txtFirstnamefield.setColumns(10);
 		
 		JLabel lblLastName = new JLabel("Last Name:");
 		lblLastName.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtLastnamefield = new JTextField();
-		txtLastnamefield.setText("lastNameField");
 		txtLastnamefield.setColumns(10);
 		
 		JLabel lblTitle = new JLabel("Title:");
 		lblTitle.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtTitlefield = new JTextField();
-		txtTitlefield.setText("titleField");
 		txtTitlefield.setColumns(10);
 		
 		JLabel lblNickname = new JLabel("Nickname:");
 		lblNickname.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtNicknamefield = new JTextField();
-		txtNicknamefield.setText("nicknameField");
 		txtNicknamefield.setColumns(10);
 		
 		JLabel lblDisplayFormat = new JLabel("Display Format:");
-		lblDisplayFormat.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDisplayFormat.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JComboBox comboBox = new JComboBox();
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(33)
-					.addComponent(lblFirstName)
-					.addGap(10)
-					.addComponent(txtFirstnamefield, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
-					.addGap(10)
-					.addComponent(lblLastName, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-					.addGap(10)
-					.addComponent(txtLastnamefield, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(54)
-					.addComponent(lblTitle, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-					.addGap(10)
-					.addComponent(txtTitlefield, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
-					.addGap(21)
-					.addComponent(lblNickname, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-					.addGap(9)
-					.addComponent(txtNicknamefield, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(4)
-					.addComponent(lblDisplayFormat, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
-					.addGap(8)
-					.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 371, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(lblDisplayFormat, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(lblTitle, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(lblFirstName, GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(txtFirstnamefield, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtTitlefield, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE))
+							.addGap(10)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(lblLastName, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(lblNickname, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(txtLastnamefield, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtNicknamefield, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(comboBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGap(14))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(8)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(3)
-							.addComponent(lblFirstName))
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblFirstName)
 						.addComponent(txtFirstnamefield, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(3)
-							.addComponent(lblLastName))
+						.addComponent(lblLastName)
 						.addComponent(txtLastnamefield, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(10)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(3)
-							.addComponent(lblTitle))
+					.addGap(3)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblTitle)
 						.addComponent(txtTitlefield, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(3)
-							.addComponent(lblNickname))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(1)
-							.addComponent(txtNicknamefield, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(3)
-							.addComponent(lblDisplayFormat))
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(lblNickname)
+						.addComponent(txtNicknamefield, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblDisplayFormat)
+						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(42))
 		);
 		setLayout(groupLayout);
 	}

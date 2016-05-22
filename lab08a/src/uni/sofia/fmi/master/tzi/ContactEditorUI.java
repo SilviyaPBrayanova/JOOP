@@ -1,28 +1,52 @@
 package uni.sofia.fmi.master.tzi;
 
+import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.GridLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class ContactEditorUI extends JFrame {
 	private static final long serialVersionUID = 1L;
-	
+	NamePanel namePanel;
+	EmailPanel emailPanel;
 	public ContactEditorUI(){
 		super();
-		NamePanel namePanel = new NamePanel();
-		EmailPanel emailPanel = new EmailPanel();
-		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
-		getContentPane().add(namePanel);
-		getContentPane().add(emailPanel);
-		
-		JPanel panel = new JPanel();
-		getContentPane().add(panel);
-		JButton button = new JButton("OK");
-		panel.add(button);
-		JButton button_1 = new JButton("Cancel");
-		panel.add(button_1);
+		namePanel = new NamePanel();
+		emailPanel = new EmailPanel();
+			
+		JButton okButton = new JButton("OK");		
+		JButton cancelButton = new JButton("Cancel");
+		GroupLayout groupLayout = new GroupLayout(getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(emailPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(namePanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGap(0))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(343, Short.MAX_VALUE)
+					.addComponent(okButton, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+					.addGap(5)
+					.addComponent(cancelButton, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(namePanel, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(emailPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(okButton)
+						.addComponent(cancelButton))
+					.addContainerGap())
+		);
+		getContentPane().setLayout(groupLayout);
 		this.pack();
+		this.setResizable(false);
 		this.setVisible(true);
 	}
 	
