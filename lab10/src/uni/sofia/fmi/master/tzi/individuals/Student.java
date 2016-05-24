@@ -1,6 +1,6 @@
 package uni.sofia.fmi.master.tzi.individuals;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Student extends Person {
 	private String facultyNumber;
@@ -15,7 +15,7 @@ public class Student extends Person {
 				   String middleName, 
 				   String lastName, 
 				   Gender gender, 
-				   Date birthDate, 
+				   LocalDate birthDate, 
 				   String facultyNumber, 
 				   String major, 
 				   int year) {

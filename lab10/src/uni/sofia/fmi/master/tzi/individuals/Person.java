@@ -1,19 +1,19 @@
 package uni.sofia.fmi.master.tzi.individuals;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Person {
 	private String firstName;
 	private String middleName; 
 	private String lastName;
 	private Gender gender;	
-	private Date birthDate;
+	private LocalDate birthDate;
 	
 	public Person(){
 		super();
 	}
 
-	public Person(String firstName, String middleName, String lastName, Gender gender, Date birthDate) {
+	public Person(String firstName, String middleName, String lastName, Gender gender, LocalDate birthDate) {
 		super();
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -66,11 +66,11 @@ public class Person {
 		this.gender = gender;
 	}
 
-	public Date getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 

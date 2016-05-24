@@ -1,17 +1,23 @@
 package uni.sofia.fmi.master.tzi.individuals;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class StudentPersonTest {
 
 	public static void main(String[] args) {
-		Person p = new Person("Gosho", "Ivanov", "Pawlov", Gender.Male, new Date(1994, 5, 12));
-		Student s = new Student("Vanya", "Veleva", "Goranova", 
-								Gender.Female, new Date(1995, 4, 5), 
+		Person person1 = new Person("Gosho", "Ivanov", "Pawlov", Gender.Male, LocalDate.of(1994, 5, 12));
+		Person person2 = new Person(person1);
+		Student student1 = new Student("Vanya", "Veleva", "Goranova", 
+								Gender.Female, LocalDate.of(1995, 4, 5), 
 								"FN3456", "Informatics", 2);
+		Student student2 = new Student(student1);
 		
-		System.out.println(p.showInfo());
-		System.out.println(s.showInfo());
+		System.out.println(person1.showInfo());
+		System.out.println(student1.showInfo());
+		System.out.println("--------------------------------"
+						 + "--------------------------------");
+		System.out.println(person2.showInfo());
+		System.out.println(student2.showInfo());
 	}
 
 }
