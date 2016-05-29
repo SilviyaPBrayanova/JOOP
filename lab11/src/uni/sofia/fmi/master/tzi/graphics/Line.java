@@ -60,7 +60,8 @@ public class Line extends Point implements IDrawable{
 
 	@Override
 	public String toString() {
-		return "Line [startX=" + x + ", startY=" + y + ", endX=" + endX + ", endY=" + endY + "]";
+		return "Line [startX=" + x + ", startY=" + y + ", endX=" + endX + 
+				", endY=" + endY + ", length=" + length() + "]";
 	}
 
 	@Override

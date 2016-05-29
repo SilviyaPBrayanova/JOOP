@@ -29,9 +29,13 @@ public class Circle extends Point implements IDrawable{
 		this.radius = radius;
 	}
 
+	public double surface(){
+		return 2*Math.PI*radius*radius;
+	}
+	
 	@Override
 	public String toString() {
-		return "Circle [radius=" + radius + ", centerX=" + x + ", centerY=" + y + "]";
+		return "Circle [radius=" + radius + ", centerX=" + x + ", centerY=" + y + ", surface=" + surface() + "]";
 	}
 
 	@Override

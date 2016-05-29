@@ -47,7 +47,8 @@ public class Rectangle extends Point implements IDrawable{
 
 	@Override
 	public String toString() {
-		return "Rectangle [width=" + width + ", height=" + height + ", startX=" + x + ", startY=" + x + "]";
+		return "Rectangle [width=" + width + ", height=" + height + ", startX=" + x + ", startY=" + 
+				x + ", surface=" + surface() + "]";
 	}
 
 	@Override
