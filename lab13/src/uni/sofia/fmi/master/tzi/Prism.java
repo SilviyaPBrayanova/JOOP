@@ -21,6 +21,6 @@ public class Prism extends Shapes3D implements IDrawable, IPrintable{
 	}
 
 	public double volume(){
-		 return base*height;
+		 return 1.0/3.0*base*height;
 	}
 }
