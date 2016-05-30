@@ -13,6 +13,6 @@ public class Sphere extends Shapes3D implements IDrawable{
 	}
 
 	public double volume(){
-		 return 4/3*Math.PI*radius*radius*radius;
+		 return 4.0/3.0*Math.PI*radius*radius*radius;
 	}
 }
