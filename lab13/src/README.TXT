@@ -1,9 +1,10 @@
-Задача 1: (за домашно)
+Задача 1: 90% (за домашно)
 Да се декларират 3 обекта от класовете Сфера, Пирамида и Призма (наследяващи общ клас – например Shape3D). 
 Да се напише метод, който да връща обект от тип Сфера.
-Shape3D sphere = getSphere(Shape3D shapeOne, Shape3D shapeTwo, Shape3D shapeThree);
+!!! Тпва не е направено. Не схващам смисъла от него !!!
+!!!Shape3D sphere = getSphere(Shape3D shapeOne, Shape3D shapeTwo, Shape3D shapeThree);!!!
 
-Задача 2: (за работа в час!)
+Задача 2: 100% (за работа в час!)
 1. Нека са дадени класовете Sphere, Pyramid, Prism и Shape3D, и интерфейсите 
 	IDrawable (с метод public void draw(); ) 	и 
 	IPrintable (с метод public void print();), 
