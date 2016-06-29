@@ -2,8 +2,13 @@ package uni.sofia.fmi.master.tzi.ui;
 
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
+import uni.sofia.fmi.master.tzi.listeners.SaveButtonListener;
+
 import javax.swing.JTextArea;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextPane;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -20,7 +25,7 @@ public class RedactorPanel extends JPanel{
 		JTextPane textPane = new JTextPane();
 		
 		JButton btnSave = new JButton("Save");
-		
+		btnSave.addActionListener(createActionListener("Save"));
 		JButton btnLoadTemplate = new JButton("Load template");
 		
 		JButton btnNew = new JButton("New");
@@ -85,6 +90,12 @@ public class RedactorPanel extends JPanel{
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
+	}
+	private ActionListener createActionListener(String btnName) {
+		switch(btnName){
+		case "Save"	: 	return new SaveButtonListener();
+		default 	:	return null;
+		}
 	}
 	private static final long serialVersionUID = 1L;
 
