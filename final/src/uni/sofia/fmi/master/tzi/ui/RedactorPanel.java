@@ -1,4 +1,4 @@
-package uni.sofia.fmi.master.tzi;
+package uni.sofia.fmi.master.tzi.ui;
 
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
