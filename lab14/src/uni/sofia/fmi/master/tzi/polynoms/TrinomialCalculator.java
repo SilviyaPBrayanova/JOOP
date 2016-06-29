@@ -1,4 +1,4 @@
-package uni.sofia.fmi.master.tzi;
+package uni.sofia.fmi.master.tzi.polynoms;
 
 public class TrinomialCalculator {
 
