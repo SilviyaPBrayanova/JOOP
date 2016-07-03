@@ -3,6 +3,9 @@ package uni.sofia.fmi.master.tzi.ui;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import uni.sofia.fmi.master.tzi.listeners.ImportTemplateButtonListener;
+import uni.sofia.fmi.master.tzi.listeners.LoadTemplateButtonListener;
+import uni.sofia.fmi.master.tzi.listeners.NewButtonListener;
 import uni.sofia.fmi.master.tzi.listeners.SaveButtonListener;
 
 import javax.swing.JTextArea;
@@ -26,11 +29,15 @@ public class RedactorPanel extends JPanel{
 		
 		JButton btnSave = new JButton("Save");
 		btnSave.addActionListener(createActionListener("Save"));
+		
 		JButton btnLoadTemplate = new JButton("Load template");
+		btnLoadTemplate.addActionListener(createActionListener("Load template"));
 		
 		JButton btnNew = new JButton("New");
+		btnNew.addActionListener(createActionListener("New"));
 		
 		JButton btnImportTemplate = new JButton("Import template");
+		btnImportTemplate.addActionListener(createActionListener("Import template"));
 		
 		JLabel lblActiveTemplate = new JLabel("Active template:");
 		lblActiveTemplate.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -93,7 +100,10 @@ public class RedactorPanel extends JPanel{
 	}
 	private ActionListener createActionListener(String btnName) {
 		switch(btnName){
-		case "Save"	: 	return new SaveButtonListener();
+		case "Save"	: 	return SaveButtonListener.getInstance();
+		case "Load template": return LoadTemplateButtonListener.getInstance();
+		case "New": return NewButtonListener.getInstance();
+		case "Import template": return ImportTemplateButtonListener.getInstance();
 		default 	:	return null;
 		}
 	}
