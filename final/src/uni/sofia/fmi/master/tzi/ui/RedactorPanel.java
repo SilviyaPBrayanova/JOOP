@@ -8,9 +8,8 @@ import uni.sofia.fmi.master.tzi.listeners.LoadTemplateButtonListener;
 import uni.sofia.fmi.master.tzi.listeners.NewButtonListener;
 import uni.sofia.fmi.master.tzi.listeners.SaveButtonListener;
 
-import javax.swing.JTextArea;
-import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JTextPane;
 import javax.swing.GroupLayout;
@@ -21,11 +20,16 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class RedactorPanel extends JPanel{
+	private static final long serialVersionUID = 1L;
+	private JTextPane textPane;
+	private JLabel manifestName;
+	private JLabel templateName;
+	
 	public RedactorPanel() {
 		super();
 		this.setBorder(new TitledBorder("YML Redactor"));
 		
-		JTextPane textPane = new JTextPane();
+		textPane = new JTextPane();
 		
 		JButton btnSave = new JButton("Save");
 		btnSave.addActionListener(createActionListener("Save"));
@@ -41,13 +45,12 @@ public class RedactorPanel extends JPanel{
 		
 		JLabel lblActiveTemplate = new JLabel("Active template:");
 		lblActiveTemplate.setHorizontalAlignment(SwingConstants.RIGHT);
+		templateName = new JLabel("");
 		
 		JLabel lblActiveManifest = new JLabel("Active manifest:");
 		lblActiveManifest.setHorizontalAlignment(SwingConstants.RIGHT);
-		
-		JLabel lblNone = new JLabel("none");
-		
-		JLabel lblNone_1 = new JLabel("none");
+		manifestName = new JLabel("");
+
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -68,8 +71,8 @@ public class RedactorPanel extends JPanel{
 								.addComponent(lblActiveTemplate, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblNone_1)
-								.addComponent(lblNone))))
+								.addComponent(manifestName)
+								.addComponent(templateName))))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -89,15 +92,32 @@ public class RedactorPanel extends JPanel{
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblActiveTemplate)
-						.addComponent(lblNone))
+						.addComponent(templateName))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblActiveManifest)
-						.addComponent(lblNone_1))
+						.addComponent(manifestName))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 	}
+	
+	public JTextPane getTextPane() {
+		return textPane;
+	}
+	
+	public void setTextPane(JTextPane textPane) {
+		this.textPane = textPane;
+	}
+
+	public String getManifestName() {
+		return manifestName.getText();
+	}
+
+	public void setManifestName(String manifestName) {
+		this.manifestName.setText(manifestName);
+	}
+
 	private ActionListener createActionListener(String btnName) {
 		switch(btnName){
 		case "Save"	: 	return SaveButtonListener.getInstance();
@@ -107,6 +127,4 @@ public class RedactorPanel extends JPanel{
 		default 	:	return null;
 		}
 	}
-	private static final long serialVersionUID = 1L;
-
 }

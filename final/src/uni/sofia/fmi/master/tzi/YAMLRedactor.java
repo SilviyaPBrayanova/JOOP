@@ -8,13 +8,13 @@ import javax.swing.SwingUtilities;
 import uni.sofia.fmi.master.tzi.ui.RedactorPanel;
 
 public class YAMLRedactor {
-
+	public static RedactorPanel rp;
 	public static void main(String[] args) throws InvocationTargetException, InterruptedException {
 		SwingUtilities.invokeLater(new Runnable() {
 			
 			@Override
 			public void run() {
-				RedactorPanel rp = new RedactorPanel();
+				rp = new RedactorPanel();
 				JFrame application = new JFrame();
 
 				application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
