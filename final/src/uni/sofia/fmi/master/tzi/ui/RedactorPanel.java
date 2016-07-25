@@ -117,7 +117,14 @@ public class RedactorPanel extends JPanel{
 	public void setManifestName(String manifestName) {
 		this.manifestName.setText(manifestName);
 	}
+	
+	public String getTemplateName() {
+		return templateName.getText();
+	}
 
+	public void setTemplateName(String templateName) {
+		this.templateName.setText(templateName);
+	}
 	private ActionListener createActionListener(String btnName) {
 		switch(btnName){
 		case "Save"	: 	return SaveButtonListener.getInstance();

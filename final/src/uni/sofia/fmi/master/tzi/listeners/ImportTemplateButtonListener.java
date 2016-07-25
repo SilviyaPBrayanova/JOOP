@@ -17,6 +17,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
+import uni.sofia.fmi.master.tzi.YAMLRedactor;
+
 public class ImportTemplateButtonListener implements ActionListener {
 	private static ImportTemplateButtonListener IMPORT_TEMPLATE_LISTENER_INSTANCE = null;
 	private SwingWorker<Void, Void> importTemplateWorker;
@@ -25,6 +27,8 @@ public class ImportTemplateButtonListener implements ActionListener {
 	private final String YML = ".YML";
 	private final String YAML = ".YAML";
 	private final String JSON = ".JSON";
+	
+	
 	
 	private ImportTemplateButtonListener() {
 		fchooser = new JFileChooser();
@@ -37,6 +41,11 @@ public class ImportTemplateButtonListener implements ActionListener {
 			@Override
 			protected Void doInBackground() throws Exception {
 				System.out.println("Import template action executing in background.");
+				importTemplateFile();				
+				return null;
+			}
+
+			private void importTemplateFile() {
 				int fcValue = fchooser.showOpenDialog((JButton)importEvent.getSource());
 				if(fcValue == JFileChooser.APPROVE_OPTION){
 				
@@ -48,8 +57,7 @@ public class ImportTemplateButtonListener implements ActionListener {
 					}else{
 						JOptionPane.showMessageDialog(null, getErrorMessage(selectedFile.getAbsolutePath()), "Unsupported file format.", JOptionPane.ERROR_MESSAGE);
 					}
-				}				
-				return null;
+				}
 			}
 			
 			private String getErrorMessage(String absolutePath) {
@@ -58,20 +66,10 @@ public class ImportTemplateButtonListener implements ActionListener {
 
 			private void saveTemplateInHome(File selectedFile) {
 				try {
-					Path redactorConfig = checkRedactorConfig();
-					Files.copy(selectedFile.toPath(), redactorConfig.resolve(selectedFile.getName()), StandardCopyOption.COPY_ATTRIBUTES);
+					Files.copy(selectedFile.toPath(), YAMLRedactor.workingDir.resolve(selectedFile.getName()), StandardCopyOption.COPY_ATTRIBUTES);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			}
-
-			private Path checkRedactorConfig() throws IOException {
-				Path osUserHome =  Paths.get(System.getProperty("user.home"));
-				Path redactorConfig = osUserHome.resolve(".redactor");	
-				if(!Files.isDirectory(redactorConfig, new LinkOption[0])){
-					Files.createDirectories(redactorConfig);
-				}
-				return redactorConfig;
 			}
 
 			private String extensionOfFile(File selectedFile) {
