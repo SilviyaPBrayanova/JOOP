@@ -1,6 +1,8 @@
 package uni.sofia.fmi.master.tzi.ui;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 
 import uni.sofia.fmi.master.tzi.listeners.ImportTemplateButtonListener;
@@ -9,9 +11,7 @@ import uni.sofia.fmi.master.tzi.listeners.NewButtonListener;
 import uni.sofia.fmi.master.tzi.listeners.SaveButtonListener;
 
 import java.awt.event.ActionListener;
-import java.io.File;
 
-import javax.swing.JTextPane;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -21,7 +21,7 @@ import javax.swing.SwingConstants;
 
 public class RedactorPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
-	private JTextPane textPane;
+	private JTextArea textArea;
 	private JLabel manifestName;
 	private JLabel templateName;
 	
@@ -29,7 +29,8 @@ public class RedactorPanel extends JPanel{
 		super();
 		this.setBorder(new TitledBorder("YML Redactor"));
 		
-		textPane = new JTextPane();
+		textArea = new JTextArea();
+		JScrollPane scroll = new JScrollPane(textArea);
 		
 		JButton btnSave = new JButton("Save");
 		btnSave.addActionListener(createActionListener("Save"));
@@ -58,13 +59,13 @@ public class RedactorPanel extends JPanel{
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(textPane, GroupLayout.PREFERRED_SIZE, 307, GroupLayout.PREFERRED_SIZE)
+							.addComponent(scroll, GroupLayout.PREFERRED_SIZE, 307, Short.MAX_VALUE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(btnSave, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-								.addComponent(btnImportTemplate, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(btnNew, GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-								.addComponent(btnLoadTemplate, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)))
+								.addComponent(btnSave, Alignment.LEADING, 130, 130, 130)
+								.addComponent(btnImportTemplate, Alignment.LEADING, 130, 130, 130)
+								.addComponent(btnNew,  Alignment.LEADING, 130, 130, 130)
+								.addComponent(btnLoadTemplate, Alignment.LEADING, 130, 130, 130)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
 								.addComponent(lblActiveManifest, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -80,7 +81,7 @@ public class RedactorPanel extends JPanel{
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(5)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(textPane, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
+						.addComponent(scroll, GroupLayout.PREFERRED_SIZE, 270, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(btnNew)
 							.addGap(9)
@@ -97,17 +98,17 @@ public class RedactorPanel extends JPanel{
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblActiveManifest)
 						.addComponent(manifestName))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, 9))
 		);
 		setLayout(groupLayout);
 	}
 	
-	public JTextPane getTextPane() {
-		return textPane;
+	public JTextArea getTextArea() {
+		return textArea;
 	}
 	
-	public void setTextPane(JTextPane textPane) {
-		this.textPane = textPane;
+	public void setTextArea(JTextArea textPane) {
+		this.textArea = textPane;
 	}
 
 	public String getManifestName() {

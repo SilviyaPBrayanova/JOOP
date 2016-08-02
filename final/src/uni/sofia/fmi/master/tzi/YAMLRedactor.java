@@ -29,7 +29,8 @@ public class YAMLRedactor {
 				application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				application.add(rp);
 				application.setSize(500, 400);
-				application.setResizable(false);
+				application.setMinimumSize(application.getSize());
+				application.setResizable(true);
 				application.setVisible(true);
 			}
 			

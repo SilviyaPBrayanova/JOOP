@@ -31,7 +31,7 @@ public class SaveButtonListener implements ActionListener{
 			@Override
 			protected Void doInBackground() throws Exception {
 				System.out.println("Save action executing in background.");
-				String text = YAMLRedactor.rp.getTextPane().getText();
+				String text = YAMLRedactor.rp.getTextArea().getText();
 				System.out.println("Saving text: " + text);
 				saveInFile(YAMLRedactor.rp.getManifestName(),text);
 				return null;

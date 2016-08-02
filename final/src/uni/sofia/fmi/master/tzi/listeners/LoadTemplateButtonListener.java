@@ -39,7 +39,7 @@ public class LoadTemplateButtonListener implements ActionListener {
 					File selectedFile = fchooser.getSelectedFile();
 					YAMLRedactor.rp.setTemplateName(selectedFile.getName());
 					String templateText = getTemplateText(Files.lines(Paths.get(selectedFile.toURI())));
-					YAMLRedactor.rp.getTextPane().setText(templateText);
+					YAMLRedactor.rp.getTextArea().setText(templateText);
 				}
 				return null;
 			}
