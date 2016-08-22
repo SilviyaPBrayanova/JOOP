@@ -29,7 +29,7 @@ public class RedactorPanel extends JPanel{
 		super();
 		this.setBorder(new TitledBorder("YML Redactor"));
 		
-		textArea = new JTextArea();
+		textArea = new JTextArea("");
 		JScrollPane scroll = new JScrollPane(textArea);
 		
 		JButton btnSave = new JButton("Save");

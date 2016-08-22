@@ -34,8 +34,7 @@ public class YMLTemplate implements TemplateParser{
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		
+		}		
 	}
 	
 	public String getParsedTemplate(){
