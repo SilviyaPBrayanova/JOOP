@@ -2,11 +2,14 @@ package uni.sofia.fmi.master.tzi.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
+import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -18,6 +21,9 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
 import uni.sofia.fmi.master.tzi.YAMLRedactor;
+import uni.sofia.fmi.master.tzi.templates.ParserFactory;
+import uni.sofia.fmi.master.tzi.templates.TemplateCannotBeParsed;
+import uni.sofia.fmi.master.tzi.templates.TemplateParser;
 
 public class ImportTemplateButtonListener implements ActionListener {
 	private static ImportTemplateButtonListener IMPORT_TEMPLATE_LISTENER_INSTANCE = null;
@@ -65,10 +71,15 @@ public class ImportTemplateButtonListener implements ActionListener {
 			}
 
 			private void saveTemplateInHome(File selectedFile) {
-				try {
-					Files.copy(selectedFile.toPath(), YAMLRedactor.workingDir.resolve(selectedFile.getName()), StandardCopyOption.COPY_ATTRIBUTES);
+				
+				try (BufferedWriter writer = Files.newBufferedWriter(YAMLRedactor.workingDir.resolve(selectedFile.getName()), StandardCharsets.UTF_8);){
+					TemplateParser tParser = ParserFactory.getParser(selectedFile);
+					tParser.parseTemplate();
+					writer.write(tParser.getParsedTemplate());
 				} catch (IOException e) {
 					e.printStackTrace();
+				} catch (TemplateCannotBeParsed tcnbp) {
+					tcnbp.printStackTrace();
 				}
 			}
 

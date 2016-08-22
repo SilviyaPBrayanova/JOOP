@@ -21,7 +21,7 @@ public class YAMLRedactor {
 		SwingUtilities.invokeLater(new Runnable() {
 			
 			@Override
-			public void run() {
+			public void run(){
 				workingDir = prepareWorkDir();
 				rp = new RedactorPanel();
 				JFrame application = new JFrame();

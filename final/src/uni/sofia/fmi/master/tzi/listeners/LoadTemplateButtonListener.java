@@ -3,7 +3,6 @@ package uni.sofia.fmi.master.tzi.listeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
@@ -11,7 +10,6 @@ import java.util.stream.Stream;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.SwingWorker;
-import javax.swing.filechooser.FileSystemView;
 
 import uni.sofia.fmi.master.tzi.YAMLRedactor;
 import uni.sofia.fmi.master.tzi.templates.YAMLRedactorFileSystemView;
